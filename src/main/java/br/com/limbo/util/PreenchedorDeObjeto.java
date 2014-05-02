@@ -1,4 +1,4 @@
-package generics;
+package br.com.limbo.util;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;

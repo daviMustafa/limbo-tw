@@ -1,7 +1,5 @@
 package br.com.limbo.web;
 
-import generics.PreenchedorDeObjeto;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.limbo.domain.Usuario;
 import br.com.limbo.persistence.UsuarioDAO;
 import br.com.limbo.persistence.UsuarioMemoriaDAO;
+import br.com.limbo.util.PreenchedorDeObjeto;
 
 @WebServlet("/cadastro")
 public class CadastroUsuarioServlet extends HttpServlet {
