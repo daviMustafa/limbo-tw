@@ -6,6 +6,7 @@ public class Usuario {
 	private String nickname;
 	private String email;
 	private String senha;
+	private String confirmarSenha;
 	
 	public Usuario() { }
 	
@@ -69,5 +70,16 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public String getConfirmarSenha() {
+		return confirmarSenha;
+	}
+
+	public void setConfirmarSenha(String confirmarSenha) {
+		this.confirmarSenha = confirmarSenha;
+	}
+	
+	
+	
 	
 }
