@@ -3,6 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.limbo_tw</groupId>
 	<artifactId>limbo-tw</artifactId>
+	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Limbo-Tw</name>
 
