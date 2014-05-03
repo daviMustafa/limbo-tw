@@ -14,4 +14,19 @@ public class UsuarioMemoriaDAO implements UsuarioDAO {
 		usuariosSalvos.add(usuario);
 	}
 
+	@Override
+	public List<Usuario> procurar(String filtro) {
+		
+		List<Usuario> filtroUsuario = new ArrayList<>();
+		
+		for(Usuario usuario: usuariosSalvos){
+			if(usuario.getNickname().contains(filtro)){
+				filtroUsuario.add(usuario);
+			}
+		}
+		return filtroUsuario;
+	}
+	
+	
+
 }
