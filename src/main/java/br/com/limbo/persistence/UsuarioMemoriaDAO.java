@@ -14,4 +14,14 @@ public class UsuarioMemoriaDAO implements UsuarioDAO {
 		usuariosSalvos.add(usuario);
 	}
 
+	@Override
+	public Usuario porEmailESenha(String email, String senha) throws UsuarioNaoEncontradoException {
+		for (Usuario usuario : usuariosSalvos) {
+			if( usuario.getEmail().equals(email)  && usuario.getSenha().equals(senha) ){
+				return usuario;
+			}
+		}
+		throw new UsuarioNaoEncontradoException();
+	}
+
 }
