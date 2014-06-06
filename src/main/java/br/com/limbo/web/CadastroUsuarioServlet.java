@@ -42,11 +42,11 @@ public class CadastroUsuarioServlet extends HttpServlet {
 		
 		if ( errorMap.isEmpty()  ) {
 			usuarioDAO.salvar(usuario);
-			req.setAttribute("msg",	"Usuário cadastrado com sucesso, seu merda!");
+			resp.sendRedirect( req.getContextPath() + "/login?cadastradoComSucesso=true" );
+		}else{
+			req.getRequestDispatcher("/WEB-INF/jsp/usuario/cadastro.jsp").forward(
+					req, resp);
 		}
-		
-		req.getRequestDispatcher("/WEB-INF/jsp/usuario/cadastro.jsp").forward(
-				req, resp);
 	}
 	
 	private Map<String, String> isValid( Usuario usuario ){

@@ -1,6 +1,7 @@
 package br.com.limbo.persistence;
 
 import br.com.limbo.domain.Usuario;
+import br.com.limbo.persistence.exception.UsuarioNaoEncontradoException;
 
 public interface UsuarioDAO {
 

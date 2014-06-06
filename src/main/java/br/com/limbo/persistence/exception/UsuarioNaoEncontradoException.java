@@ -1,4 +1,4 @@
-package br.com.limbo.persistence;
+package br.com.limbo.persistence.exception;
 
 public class UsuarioNaoEncontradoException extends Exception {
 

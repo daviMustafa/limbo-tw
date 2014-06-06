@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import br.com.limbo.domain.Usuario;
 import br.com.limbo.persistence.UsuarioDAO;
-import br.com.limbo.persistence.UsuarioNaoEncontradoException;
+import br.com.limbo.persistence.exception.UsuarioNaoEncontradoException;
 import br.com.limbo.persistence.factory.UsuarioDAOFactory;
 
 @WebServlet("/login")
@@ -22,6 +22,10 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		if(req.getParameter("cadastradoComSucesso") != null){
+			req.setAttribute("mensagem",	"Usuário cadastrado com sucesso.");
+		}
+		
 		req.getRequestDispatcher("/WEB-INF/jsp/login/login.jsp").forward(req, resp);
 	}
 	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.limbo.domain.Usuario;
+import br.com.limbo.persistence.exception.UsuarioNaoEncontradoException;
 
 public class UsuarioMemoriaDAO implements UsuarioDAO {
 	
