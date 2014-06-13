@@ -16,6 +16,18 @@ public class UsuarioMemoriaDAO implements UsuarioDAO {
 	}
 
 	@Override
+	public List<Usuario> procurar(String filtro) {
+		List<Usuario> filtroUsuario = new ArrayList<>();
+		
+		for(Usuario usuario: usuariosSalvos){
+			if(usuario.getNickname().contains(filtro)){
+				filtroUsuario.add(usuario);
+			}
+		}
+		return filtroUsuario;
+	}
+	
+	
 	public Usuario porEmailESenha(String email, String senha) throws UsuarioNaoEncontradoException {
 		for (Usuario usuario : usuariosSalvos) {
 			if( usuario.getEmail().equals(email)  && usuario.getSenha().equals(senha) ){
