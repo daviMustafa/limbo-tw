@@ -15,16 +15,18 @@ import br.com.limbo.domain.Usuario;
 import br.com.limbo.persistence.MensagemDAO;
 import br.com.limbo.persistence.factory.MensagemDAOFactory;
 
-@WebServlet("/mensagem/nova")
+@WebServlet("/mensagem/novo")
 public class CadastroMensagemServlet extends HttpServlet {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)	throws ServletException, IOException {
 		String corpo = req.getParameter("corpo");
 		if( corpo != null && !corpo.trim().isEmpty() ) {
 			Mensagem msg = new Mensagem();
 			msg.setCorpo(corpo);
-			msg.setDataPublicao(new Date());
+			msg.setDataPublicacao(new Date());
 			HttpSession se = req.getSession();
 			Usuario usuario = (Usuario)se.getAttribute("usuario");
 			msg.setAutor(usuario);

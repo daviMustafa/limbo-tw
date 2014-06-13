@@ -12,7 +12,7 @@
     <c:if test="${mensagem != null}">
         <div>${mensagem}</div>
     </c:if>
-    <form action="${path}/mensagem/nova" method="post">
+    <form action="${path}/mensagem/novo" method="post">
         <div>
             <label for="corpo">
                 Mensagem:
