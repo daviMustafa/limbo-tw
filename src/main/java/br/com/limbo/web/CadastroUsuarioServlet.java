@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.limbo.domain.Usuario;
 import br.com.limbo.persistence.UsuarioDAO;
 import br.com.limbo.persistence.UsuarioMemoriaDAO;
+import br.com.limbo.persistence.factory.UsuarioDAOFactory;
 import br.com.limbo.util.PreenchedorDeObjeto;
 
 @WebServlet("/cadastro")
@@ -23,20 +24,17 @@ public class CadastroUsuarioServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-
 		req.getRequestDispatcher("/WEB-INF/jsp/usuario/cadastro.jsp").forward(
 				req, resp);
-
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
 		PreenchedorDeObjeto preenchedor = new PreenchedorDeObjeto();
 		
 		Usuario usuario = preenchedor.preencher( Usuario.class, req );
-		UsuarioDAO usuarioDAO = new UsuarioMemoriaDAO();
+		UsuarioDAO usuarioDAO = UsuarioDAOFactory.getDao();
 
 		Map<String, String> errorMap = isValid(usuario);
 		req.setAttribute("errorMap",  errorMap );
@@ -44,11 +42,11 @@ public class CadastroUsuarioServlet extends HttpServlet {
 		
 		if ( errorMap.isEmpty()  ) {
 			usuarioDAO.salvar(usuario);
-			req.setAttribute("msg",	"Usuário cadastrado com sucesso, seu merda!");
+			resp.sendRedirect( req.getContextPath() + "/login?cadastradoComSucesso=true" );
+		}else{
+			req.getRequestDispatcher("/WEB-INF/jsp/usuario/cadastro.jsp").forward(
+					req, resp);
 		}
-		
-		req.getRequestDispatcher("/WEB-INF/jsp/usuario/cadastro.jsp").forward(
-				req, resp);
 	}
 	
 	private Map<String, String> isValid( Usuario usuario ){

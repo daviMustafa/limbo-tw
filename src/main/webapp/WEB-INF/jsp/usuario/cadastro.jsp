@@ -27,13 +27,13 @@
 		</div>
 
 		<div>
-			<label for="senha">Senha:</label> <input id="senha" name="senha" />
+			<label for="senha">Senha:</label> <input type="password" id="senha" name="senha" />
 			<label>${errorMap['senha']}</label>
 		</div>
 
 		<div>
 			<label for="confirmarSenha">Confirmar Senha:</label> <input
-				id="confirmarSenha" name="confirmarSenha" />
+				type="password" id="confirmarSenha" name="confirmarSenha" />
 			<label>${errorMap['confirmarSenha']}</label>
 		</div>
 
